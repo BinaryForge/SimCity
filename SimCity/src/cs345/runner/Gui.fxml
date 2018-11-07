@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="gamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu text="_File">
+               <items>
+                  <MenuItem fx:id="newGridMenuItem" disable="true" text="_New" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="exitMenuItem" text="_Exit" />
+               </items>
+          </Menu>
+            <Menu text="_Run">
+              <items>
+                <MenuItem fx:id="runMenuItem" text="_Run" />
+                  <MenuItem fx:id="runFastMenuItem" mnemonicParsing="false" text="Run Fast" />
+                  <MenuItem fx:id="runVeryFastMenuItem" mnemonicParsing="false" text="Run Very Fast" />
+                  <MenuItem fx:id="runSlowMenuItem" mnemonicParsing="false" text="Run Slow" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="stopMenuItem" text="_Stop" />
+              </items>
+            </Menu>
+            <Menu text="_View">
+              <items>
+                <MenuItem fx:id="textInputMenuItem" mnemonicParsing="false" text="Text Input" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <VBox fx:id="leftPane" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox>
+               <children>
+                  <BorderPane>
+                     <left>
+                        <Label text="Date:" BorderPane.alignment="CENTER" />
+                     </left>
+                     <right>
+                        <Text fx:id="dateValue" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets left="10.0" />
+                           </BorderPane.margin>
+                        </Text>
+                     </right>
+                  </BorderPane>
+                  <BorderPane>
+                     <left>
+                        <Label text="Population:" BorderPane.alignment="CENTER" />
+                     </left>
+                     <right>
+                        <Text fx:id="populationValue" strokeType="OUTSIDE" strokeWidth="0.0" text="YYY" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets left="10.0" />
+                           </BorderPane.margin>
+                        </Text>
+                     </right>
+                  </BorderPane>
+                  <BorderPane>
+                     <left>
+                        <Label text="Industry:" BorderPane.alignment="CENTER" />
+                     </left>
+                     <right>
+                        <Text fx:id="industryValue" strokeType="OUTSIDE" strokeWidth="0.0" text="ZZZ" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets left="10.0" />
+                           </BorderPane.margin>
+                        </Text>
+                     </right>
+                  </BorderPane>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="8.0">
+               <children>
+                  <ToggleButton fx:id="resTool" mnemonicParsing="false">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true" smooth="false">
+                           <image>
+                              <Image url="@images/ResIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="toolButtons" />
+                     </toggleGroup>
+                  </ToggleButton>
+                  <ToggleButton fx:id="indTool" mnemonicParsing="false" toggleGroup="$toolButtons">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true" smooth="false">
+                           <image>
+                              <Image url="@images/IndIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton fx:id="roadTool" layoutX="84.0" layoutY="31.0" mnemonicParsing="false" toggleGroup="$toolButtons">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true" smooth="false">
+                           <image>
+                              <Image url="@images/RoadIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton fx:id="bulldozeTool" layoutX="158.0" layoutY="31.0" mnemonicParsing="false" toggleGroup="$toolButtons">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true" smooth="false">
+                           <image>
+                              <Image url="@images/BulldozeIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+               </children>
+            </HBox>
+            <ScrollPane fx:id="msgScroll" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <content>
+                  <Text fx:id="messageArea" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to CS345Opolis!&#10;" />
+               </content>
+            </ScrollPane>
+         </children>
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+      </VBox>
+   </left>
+   <center>
+      <ScrollPane BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane fx:id="gridContainer">
+               <children>
+                  <GridPane fx:id="gridPane" minHeight="200.0" minWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints />
+                    </rowConstraints>
+                     <opaqueInsets>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </opaqueInsets>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <TextField fx:id="inputField" visible="false" />
+   </bottom>
+</BorderPane>
